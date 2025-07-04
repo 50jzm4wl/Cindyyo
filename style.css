@@ -1,0 +1,401 @@
+:root {
+  --primary-color: #ff5722; /* Oranye */
+  --secondary-color: #ff9800; /* Oranye lebih muda */
+  --background-color: #f5f5f5; /* Abu-abu terang */
+  --card-background: #ffffff;
+  --text-color: #333;
+  --light-text-color: #666;
+  --border-color: #eee;
+  --star-color: gold;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+input#cari {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input#cari::placeholder {
+  color: var(--light-text-color);
+}
+
+#search-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: var(--secondary-color);
+}
+
+
+/* Recipe Grid */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Consistent image height */
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Allow content to grow */
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  color: var(--primary-color);
+  text-align: left; /* Override global h2 centering */
+}
+
+.card p {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: var(--light-text-color);
+}
+
+.card p strong {
+  color: var(--text-color);
+}
+
+/* Rating */
+.rating {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.rating span {
+  margin-right: 5px;
+  color: var(--light-text-color);
+}
+
+.star {
+  font-size: 1.8em;
+  color: var(--star-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.star.active {
+  color: var(--star-color);
+}
+.star.inactive {
+    color: #ccc;
+}
+
+
+/* Buttons */
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
+/* Ulasan */
+.ulasan-section {
+  margin-top: 20px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.ulasan-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.ulasan-input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+.ulasan-input-container button {
+  background-color: #4CAF50; /* Hijau */
+}
+
+.ulasan-input-container button:hover {
+  background-color: #45a049;
+}
+
+.ulasan-list {
+  list-style: none;
+  padding: 0;
+  max-height: 150px; /* Limit height for scrollable reviews */
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fcfcfc;
+}
+
+.ulasan-list li {
+  background-color: #e0f2f7; /* Biru muda */
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  border-left: 5px solid var(--primary-color);
+}
+
+.ulasan-list li:last-child {
+  margin-bottom: 0;
+}
+
+.no-bookmark-message {
+  text-align: center;
+  color: var(--light-text-color);
+  font-style: italic;
+  margin-top: 50px;
+}
+
+.hidden-section {
+  display: none;
+}
+
+.active-section {
+  display: block;
+}
+
+.back-to-home-button {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  background-color: #607d8b; /* Abu-abu kebiruan */
+}
+
+.back-to-home-button:hover {
+  background-color: #455a64;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: var(--text-color);
+  color: white;
+  font-size: 0.9em;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide nav links by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li {
+    margin: 10px 20px;
+  }
+
+  .menu-toggle {
+    display: block; /* Show menu toggle button on mobile */
+  }
+
+  main {
+    padding: 0 15px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  #search-button {
+    width: 100%;
+  }
+
+  .card-buttons {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .ulasan-input-container {
+    flex-direction: column;
+  }
+  .ulasan-input-container button {
+    width: 100%;
+  }
+}
+
+#installBtn {
+  padding: 10px 15px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
